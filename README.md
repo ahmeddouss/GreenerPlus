@@ -1,6 +1,13 @@
 # GreenerPlus
 ### 1. Download and Installation:
-- Download the APK on your Android Phone.
+- Extarct the zip Folder
+- Open in Visual Studio
+-Run This command
+```sh
+flutter pub get
+flutter build apk
+```
+- Download the APK-release on the following path created on your Android Phone.
 - Install the APK in your phone to use the app directly.
 ### 2. Requirements:
 - The app requires an ESP32 and some sensors to track real-time data.
