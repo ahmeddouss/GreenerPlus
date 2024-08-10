@@ -4,7 +4,7 @@
 - Install the APK in your phone to use the app directly.
 ### 2. Requirements:
 - The app requires an ESP32 and some sensors to track real-time data.
-- Follow [Esp32 Steps](##Esp32Steps) this steps and use the Esp 32 code.
+- Follow [Esp32 Steps](##Esp-32-Steps) this steps and use the Esp 32 code.
 ## HomePage Features:
 ### Location Activation
 Enable location services to test the weather API. Gemini will use weather data to provide tailored plant care advice.
@@ -45,7 +45,7 @@ Search for details about any plant by its name.
 - **Score Management**: View your score and its conversion.
 - **Coupons**: Obtain and use coupons with your score.
 
-##Esp32Steps
+## Esp 32 Steps
 ### Required Equipement:
 - **DHT Sensor**: To track humidity and temperature.
 - **Light Sensor**: To track light intensity.
