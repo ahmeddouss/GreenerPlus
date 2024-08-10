@@ -4,7 +4,7 @@
 - Install the APK in your phone to use the app directly.
 ### 2. Requirements:
 - The app requires an ESP32 and some sensors to track real-time data.
-- Follow [Esp32 Steps](#esp-32-steps) this steps and use the Esp 32 code.
+- Follow [this steps](#esp-32-steps) this steps and use the Esp 32 code.
 ## HomePage Features:
 ### Location Activation
 Enable location services to test the weather API. Gemini will use weather data to provide tailored plant care advice.
@@ -54,7 +54,7 @@ Search for details about any plant by its name.
 - Follow This Circuit To get the code work perfectly
 ![Esp Ciruit](https://github.com/user-attachments/assets/8639225d-99f8-4fbc-97be-d60a4c573ff0)
 ### Run Code
-1. Download this code
+1. Download [this code](arduino/Esp32.ino)
 2. install all the required library on your arduino ide
 3. Select Esp32 Dev Module and Run
 
