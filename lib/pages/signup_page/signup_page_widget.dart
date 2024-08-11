@@ -459,19 +459,28 @@ class _SignupPageWidgetState extends State<SignupPageWidget>
                                                   highlightColor:
                                                       Colors.transparent,
                                                   onTap: () async {
-                                                    GoRouter.of(context)
-                                                        .prepareAuthEvent();
-                                                    final user =
-                                                        await authManager
-                                                            .signInWithGoogle(
-                                                                context);
-                                                    if (user == null) {
+                                                    if (_model
+                                                        .emailTextController1
+                                                        .text
+                                                        .isEmpty) {
+                                                      ScaffoldMessenger.of(
+                                                              context)
+                                                          .showSnackBar(
+                                                        SnackBar(
+                                                          content: Text(
+                                                            'Email required!',
+                                                          ),
+                                                        ),
+                                                      );
                                                       return;
                                                     }
-
-                                                    context.goNamedAuth(
-                                                        'HomePage',
-                                                        context.mounted);
+                                                    await authManager
+                                                        .resetPassword(
+                                                      email: _model
+                                                          .emailTextController1
+                                                          .text,
+                                                      context: context,
+                                                    );
                                                   },
                                                   child: Text(
                                                     'Forget Password?',
@@ -612,7 +621,7 @@ class _SignupPageWidgetState extends State<SignupPageWidget>
                                                           .prepareAuthEvent();
                                                       final user =
                                                           await authManager
-                                                              .signInWithApple(
+                                                              .signInWithFacebook(
                                                                   context);
                                                       if (user == null) {
                                                         return;

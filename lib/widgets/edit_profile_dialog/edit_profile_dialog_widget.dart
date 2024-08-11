@@ -406,80 +406,110 @@ class _EditProfileDialogWidgetState extends State<EditProfileDialogWidget> {
                               ),
                             ),
                           ),
-                          Padding(
-                            padding:
-                                EdgeInsetsDirectional.fromSTEB(0, 0, 0, 12),
-                            child: TextFormField(
-                              controller: _model.clonableURLTextController,
-                              focusNode: _model.clonableURLFocusNode,
-                              autofocus: true,
-                              obscureText: false,
-                              decoration: InputDecoration(
-                                labelText: 'Email',
-                                labelStyle: FlutterFlowTheme.of(context)
-                                    .labelLarge
+                          Column(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              TextFormField(
+                                controller: _model.clonableURLTextController,
+                                focusNode: _model.clonableURLFocusNode,
+                                autofocus: true,
+                                obscureText: false,
+                                decoration: InputDecoration(
+                                  labelText: 'Email',
+                                  labelStyle: FlutterFlowTheme.of(context)
+                                      .labelLarge
+                                      .override(
+                                        fontFamily: 'Roboto',
+                                        letterSpacing: 0,
+                                      ),
+                                  hintStyle: FlutterFlowTheme.of(context)
+                                      .labelLarge
+                                      .override(
+                                        fontFamily: 'Roboto',
+                                        letterSpacing: 0,
+                                      ),
+                                  enabledBorder: UnderlineInputBorder(
+                                    borderSide: BorderSide(
+                                      color: FlutterFlowTheme.of(context)
+                                          .alternate,
+                                      width: 2,
+                                    ),
+                                    borderRadius: const BorderRadius.only(
+                                      topLeft: Radius.circular(4.0),
+                                      topRight: Radius.circular(4.0),
+                                    ),
+                                  ),
+                                  focusedBorder: UnderlineInputBorder(
+                                    borderSide: BorderSide(
+                                      color:
+                                          FlutterFlowTheme.of(context).primary,
+                                      width: 2,
+                                    ),
+                                    borderRadius: const BorderRadius.only(
+                                      topLeft: Radius.circular(4.0),
+                                      topRight: Radius.circular(4.0),
+                                    ),
+                                  ),
+                                  errorBorder: UnderlineInputBorder(
+                                    borderSide: BorderSide(
+                                      color: FlutterFlowTheme.of(context).error,
+                                      width: 2,
+                                    ),
+                                    borderRadius: const BorderRadius.only(
+                                      topLeft: Radius.circular(4.0),
+                                      topRight: Radius.circular(4.0),
+                                    ),
+                                  ),
+                                  focusedErrorBorder: UnderlineInputBorder(
+                                    borderSide: BorderSide(
+                                      color: FlutterFlowTheme.of(context).error,
+                                      width: 2,
+                                    ),
+                                    borderRadius: const BorderRadius.only(
+                                      topLeft: Radius.circular(4.0),
+                                      topRight: Radius.circular(4.0),
+                                    ),
+                                  ),
+                                ),
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyLarge
                                     .override(
                                       fontFamily: 'Roboto',
                                       letterSpacing: 0,
                                     ),
-                                hintStyle: FlutterFlowTheme.of(context)
-                                    .labelLarge
-                                    .override(
-                                      fontFamily: 'Roboto',
-                                      letterSpacing: 0,
+                                validator: _model
+                                    .clonableURLTextControllerValidator
+                                    .asValidator(context),
+                              ),
+                              Padding(
+                                padding:
+                                    EdgeInsetsDirectional.fromSTEB(0, 7, 0, 15),
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Icon(
+                                      Icons.info_outline,
+                                      color: FlutterFlowTheme.of(context)
+                                          .secondaryText,
+                                      size: 15,
                                     ),
-                                enabledBorder: UnderlineInputBorder(
-                                  borderSide: BorderSide(
-                                    color:
-                                        FlutterFlowTheme.of(context).alternate,
-                                    width: 2,
-                                  ),
-                                  borderRadius: const BorderRadius.only(
-                                    topLeft: Radius.circular(4.0),
-                                    topRight: Radius.circular(4.0),
-                                  ),
-                                ),
-                                focusedBorder: UnderlineInputBorder(
-                                  borderSide: BorderSide(
-                                    color: FlutterFlowTheme.of(context).primary,
-                                    width: 2,
-                                  ),
-                                  borderRadius: const BorderRadius.only(
-                                    topLeft: Radius.circular(4.0),
-                                    topRight: Radius.circular(4.0),
-                                  ),
-                                ),
-                                errorBorder: UnderlineInputBorder(
-                                  borderSide: BorderSide(
-                                    color: FlutterFlowTheme.of(context).error,
-                                    width: 2,
-                                  ),
-                                  borderRadius: const BorderRadius.only(
-                                    topLeft: Radius.circular(4.0),
-                                    topRight: Radius.circular(4.0),
-                                  ),
-                                ),
-                                focusedErrorBorder: UnderlineInputBorder(
-                                  borderSide: BorderSide(
-                                    color: FlutterFlowTheme.of(context).error,
-                                    width: 2,
-                                  ),
-                                  borderRadius: const BorderRadius.only(
-                                    topLeft: Radius.circular(4.0),
-                                    topRight: Radius.circular(4.0),
-                                  ),
+                                    Text(
+                                      'This Email will not change in auth only for\nadmin to contact you',
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Roboto',
+                                            color: FlutterFlowTheme.of(context)
+                                                .secondaryText,
+                                            fontSize: 13,
+                                            letterSpacing: 0,
+                                          ),
+                                    ),
+                                  ].divide(SizedBox(width: 2)),
                                 ),
                               ),
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyLarge
-                                  .override(
-                                    fontFamily: 'Roboto',
-                                    letterSpacing: 0,
-                                  ),
-                              validator: _model
-                                  .clonableURLTextControllerValidator
-                                  .asValidator(context),
-                            ),
+                            ],
                           ),
                           Padding(
                             padding:
@@ -490,6 +520,12 @@ class _EditProfileDialogWidgetState extends State<EditProfileDialogWidget> {
                               children: [
                                 FFButtonWidget(
                                   onPressed: () async {
+                                    if (_model.formKey.currentState == null ||
+                                        !_model.formKey.currentState!
+                                            .validate()) {
+                                      return;
+                                    }
+
                                     await currentUserReference!
                                         .update(createUsersRecordData(
                                       email:
@@ -504,7 +540,7 @@ class _EditProfileDialogWidgetState extends State<EditProfileDialogWidget> {
                                       displayName:
                                           _model.projectURLTextController1.text,
                                     ));
-                                    if (_model.projectURLTextController1.text
+                                    if (_model.clonableURLTextController.text
                                         .isEmpty) {
                                       ScaffoldMessenger.of(context)
                                           .showSnackBar(
@@ -519,7 +555,7 @@ class _EditProfileDialogWidgetState extends State<EditProfileDialogWidget> {
 
                                     await authManager.updateEmail(
                                       email:
-                                          _model.projectURLTextController1.text,
+                                          _model.clonableURLTextController.text,
                                       context: context,
                                     );
                                     setState(() {});

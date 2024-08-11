@@ -132,6 +132,8 @@ dependencies:
   flutter_local_notifications: ^17.2.1+2
   flutter_blue_plus: ^1.32.11
   flutter_image_compress: ^2.3.0
+  facebook_auth: ^0.0.3
+  flutter_facebook_auth: ^7.0.1
 
 dependency_overrides:
   http: 1.2.1

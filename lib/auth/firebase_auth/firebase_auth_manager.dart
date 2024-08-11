@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:greener_plus/auth/firebase_auth/facebook_auth.dart';
 import '../auth_manager.dart';
 import '../base_auth_user_provider.dart';
 import '../../flutter_flow/flutter_flow_util.dart';
@@ -17,6 +18,7 @@ import 'firebase_user_provider.dart';
 import 'google_auth.dart';
 import 'jwt_token_auth.dart';
 import 'github_auth.dart';
+import 'facebook_auth.dart';
 
 export '../base_auth_user_provider.dart';
 
@@ -47,6 +49,7 @@ class FirebaseAuthManager extends AuthManager
     with
         EmailSignInManager,
         GoogleSignInManager,
+        FacebookSignInManager,
         AppleSignInManager,
         AnonymousSignInManager,
         JwtSignInManager,
@@ -80,6 +83,30 @@ class FirebaseAuthManager extends AuthManager
                   'Too long since most recent sign in. Sign in again before deleting your account.')),
         );
       }
+    }
+  }
+
+  Future<void> reauthenticateUser({
+    required String email,
+    required BuildContext context,
+  }) async {
+    User? user = FirebaseAuth.instance.currentUser;
+    if (user == null) return;
+
+    // Prompt for user credentials to re-authenticate
+    String email = "ahmed.douss@esprit.com"; // Replace with actual user email
+    String password = "123456789"; // Replace with actual user password
+
+    AuthCredential credential =
+        EmailAuthProvider.credential(email: email, password: password);
+    try {
+      await user.reauthenticateWithCredential(credential);
+      // Now call updateEmail() after re-authentication
+      await updateEmail(email: email, context: context);
+    } catch (e) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Re-authentication failed: ${e.toString()}')),
+      );
     }
   }
 
@@ -163,6 +190,9 @@ class FirebaseAuthManager extends AuthManager
   @override
   Future<BaseAuthUser?> signInWithGoogle(BuildContext context) =>
       _signInOrCreateAccount(context, googleSignInFunc, 'GOOGLE');
+
+  Future<BaseAuthUser?> signInWithFacebook(BuildContext context) =>
+      _signInOrCreateAccount(context, facebookSignInFunc, 'FACEBOOK');
 
   @override
   Future<BaseAuthUser?> signInWithGithub(BuildContext context) =>

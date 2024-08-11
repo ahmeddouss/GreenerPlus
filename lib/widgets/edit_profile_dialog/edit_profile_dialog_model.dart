@@ -55,15 +55,15 @@ class EditProfileDialogModel extends FlutterFlowModel<EditProfileDialogWidget> {
     }
 
     if (val.length < 5) {
-      return 'Requires at least 5 characters.';
+      return 'Check Phone Number';
     }
     if (val.length > 15) {
-      return 'Maximum 15 characters allowed, currently ${val.length}.';
+      return 'Check Phone Number';
     }
     if (!RegExp(
             '^\\+?([0-9]{1,4})?\\s?([0-9]{1,4})\\s?([0-9]{1,4})\\s?([0-9]{1,9})\$')
         .hasMatch(val)) {
-      return 'Invalid text';
+      return 'Check Phone Number';
     }
     return null;
   }
