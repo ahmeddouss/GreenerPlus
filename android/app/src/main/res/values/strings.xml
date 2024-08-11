@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <resources>
-    <string name="app_name">greenerai</string>
     <string name="facebook_app_id">1487519642125247</string>
-    <string name="fb_login_protocol_scheme">fb1487519642125247</string>
     <string name="facebook_client_token">a4df43c60076494927debdc8f12945c6</string>
-    
-
 </resources>

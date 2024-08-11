@@ -1,0 +1,1 @@
+ C:\\Users\\ahmed\\OneDrive\\Documents\\GitHub\\GreenerPlus\\.dart_tool\\flutter_build\\fb23eae55d60248d54d48082a7f14992\\native_assets.yaml: 

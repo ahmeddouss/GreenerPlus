@@ -5,6 +5,7 @@
 -Run This command
 ```sh
 flutter pub get
+flutter pub run flutter_launcher_icons
 flutter build apk
 ```
 - Download the APK-release on the following path created on your Android Phone.

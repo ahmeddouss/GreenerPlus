@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 
@@ -20,11 +22,13 @@ Future<UserCredential?> facebookSignInFunc() async {
   }
 
   // Handle mobile-specific Facebook sign-in
-  final result =
-      await _facebookAuth.login(permissions: ['email', 'public_profile']);
+  final result = await _facebookAuth.login();
+  print(result.accessToken!.tokenString.toString());
+  print(result.message);
   if (result.status == LoginStatus.success) {
     final credential =
         FacebookAuthProvider.credential(result.accessToken!.tokenString);
+    print(credential);
     return FirebaseAuth.instance.signInWithCredential(credential);
   } else {
     return null;
